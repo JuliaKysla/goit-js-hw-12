@@ -44,6 +44,7 @@ async function onFormSubmit(e) {
       position: 'topRight',
       message: 'Enter a word to search for',
     });
+    hideLoader();
     return;
   }
 
@@ -56,6 +57,7 @@ async function onFormSubmit(e) {
         message:
           'Sorry, there are no images matching your search query. Please try again!',
       });
+      hideLoader();
       return;
     }
 

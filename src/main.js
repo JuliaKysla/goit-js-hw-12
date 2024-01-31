@@ -124,6 +124,7 @@ async function onLoadBtnClick() {
   renderPictures(result.hits);
   changeBtnStatus(result.totalHits);
   hideLoader();
+  smoothScrollPicturesCard();
 }
 
 function changeBtnStatus(totalHits) {
@@ -150,3 +151,16 @@ const lightbox = new SimpleLightbox('.pictures-list a', {
   captionDelay: 250,
   captionsData: 'alt',
 });
+
+function getCardHeight() {
+  const imageCard = document.querySelector('.picture-card');
+  return imageCard.getBoundingClientRect().height;
+}
+
+function smoothScrollPicturesCard() {
+  const cardHeight = getCardHeight();
+  window.scrollBy({
+    top: cardHeight * 2,
+    behavior: 'smooth',
+  });
+}

@@ -38,7 +38,7 @@ async function onFormSubmit(e) {
   e.preventDefault();
   query = e.target.elements.query.value;
   page = 1;
-
+  showLoader();
   if (query === '') {
     iziToast.error({
       position: 'topRight',
@@ -60,7 +60,6 @@ async function onFormSubmit(e) {
     }
 
     if (page === 1) {
-      showLoader();
       list.innerHTML = '';
       renderPictures(result.hits);
       changeBtnStatus(result.totalHits);
